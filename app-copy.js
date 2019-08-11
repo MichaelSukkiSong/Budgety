@@ -3,6 +3,7 @@
 var budgetController = (function() {
 
     return {
+        addItem: 
 
     }
 })();
@@ -32,6 +33,14 @@ var UIController = (function() {
     }
 
     return {
+        getinput: function() {
+            return {
+                type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp
+                description: document.querySelector(DOMstrings.inputDescription).value,
+                value: parseFloat(document.querySelector(DOMstrings.inputValue).value),
+            };
+        },
+
         getDOMstrings: function() {
             return DOMstrings;
         }
@@ -45,9 +54,29 @@ var controller = (function(budgetCtrl, UICtrl) {
     var setupEventListeners = function() {
         var DOM = UICtrl.getDOMstrings();
 
-        document.querySelector(DOM.inputBtn).addEventListener('click', )
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
     };
+
+    var ctrlAddItem = function() {
+        var input, newItem;
+        // 1. Get the field input data
+        input = UICtrl.getinput();
+
+        if (input.description !== "" && !isNaN(input.value) && input.value >0) {
+            // 2. Add the item to the budget controller
+            newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+
+            // 3. Add the item to the UI
+
+            // 4. Clear the fields
+
+            // 5. Calculate and update budget
+
+            // 6. Calculate and update percentages
+        }
+
+    }
 
     return {
 
