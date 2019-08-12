@@ -17,7 +17,7 @@ var budgetController = (function() {
         }
     };
 
-    Expense.prototype.getPercentages = function() {
+    Expense.prototype.getPercentage = function() {
         return this.percentage;
     }
 
@@ -282,7 +282,7 @@ var controller = (function(budgetCtrl, UICtrl) {
         var percentages = budgetCtrl.getPercentages();
 
         // 3. update the ui with the new percentages
-        UIControleer.displayPercentages(percentages);
+        UICtrl.displayPercentages(percentages);
 
     };
 
